@@ -1,0 +1,25 @@
+module Main where
+
+-- Define PaymentMethod type
+data PaymentMethod = Cash | Card | Cryptocurrency
+    deriving (Show)
+
+-- Define Person type
+data Person = Person
+    { name :: String
+    , address :: (String, Int)  -- (Street, Number)
+    , paymentMethod :: PaymentMethod
+    } deriving (Show)
+
+-- Create a person named Bob who pays with cash
+bob :: Person
+bob = Person
+    { name = "Bob Smith"
+    , address = ("Main Street", 123)
+    , paymentMethod = Cash
+    }
+
+main :: IO ()
+main = do
+    putStrLn "Bob's details:"
+    print bob
