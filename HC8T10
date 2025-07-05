@@ -1,0 +1,26 @@
+module Main where
+
+-- Define Book type with record syntax and derived Show
+data Book = Book
+    { title :: String
+    , author :: String
+    , year :: Int
+    } deriving (Show)  -- Automatically generates Show instance
+
+-- Create a book instance
+myBook :: Book
+myBook = Book
+    { title = "The Haskell Road to Logic, Math and Programming"
+    , author = "Kees Doets and Jan van Eijck"
+    , year = 2004
+    }
+
+main :: IO ()
+main = do
+    -- Print the book using the derived Show instance
+    putStrLn "Book details:"
+    print myBook
+    
+    -- Alternative way to show it
+    putStrLn "\nAlternative display:"
+    putStrLn $ show myBook
