@@ -1,0 +1,20 @@
+module Main where
+
+-- Define type synonyms
+type Name = String
+type Age = Int
+
+-- Greet function implementation
+greet :: Name -> Age -> String
+greet name age = "Hello, " ++ name ++ "! You are " ++ show age ++ " years young!"
+
+main :: IO ()
+main = do
+    -- Using the greet function
+    putStrLn $ greet "Alice" 30
+    putStrLn $ greet "Bob" 25
+    
+    -- With explicitly typed variables
+    let personName = "Carol" :: Name
+        personAge = 28 :: Age
+    putStrLn $ greet personName personAge
