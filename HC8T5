@@ -1,0 +1,32 @@
+module Main where
+
+-- Define Person type with record syntax
+data Person = Person
+    { name :: String
+    , age :: Int
+    , isEmployed :: Bool
+    } deriving (Show)
+
+-- Create an employed person
+person1 :: Person
+person1 = Person
+    { name = "Alice Johnson"
+    , age = 32
+    , isEmployed = True
+    }
+
+-- Create an unemployed person
+person2 :: Person
+person2 = Person
+    { name = "Bob Smith"
+    , age = 28
+    , isEmployed = False
+    }
+
+main :: IO ()
+main = do
+    putStrLn "Employed person:"
+    print person1
+    
+    putStrLn "\nUnemployed person:"
+    print person2
