@@ -1,0 +1,19 @@
+module Main where
+
+-- Define Shape type
+data Shape = Circle Float          -- Single Float for radius
+           | Rectangle Float Float -- Two Floats for width and height
+           deriving (Show)
+
+-- Area calculation function
+area :: Shape -> Float
+area (Circle r) = pi * r * r
+area (Rectangle w h) = w * h
+
+main :: IO ()
+main = do
+    let circle = Circle 5.0
+        rectangle = Rectangle 10.0 5.0
+    
+    putStrLn $ "Area of " ++ show circle ++ " = " ++ show (area circle)
+    putStrLn $ "Area of " ++ show rectangle ++ " = " ++ show (area rectangle)
