@@ -1,0 +1,38 @@
+module Main where
+
+import Data.UUID (UUID)
+import Data.UUID.V4 (nextRandom)
+
+-- Type synonyms for clarity
+type Address = String
+type Value = Int
+
+-- Transaction record type
+data Transaction = Transaction
+    { from :: Address
+    , to :: Address
+    , amount :: Value
+    , transactionId :: String
+    } deriving (Show)
+
+-- Function to create a new transaction
+createTransaction :: Address -> Address -> Value -> IO String
+createTransaction fromAddr toAddr amountValue = do
+    uuid <- nextRandom  -- Generate a random UUID
+    let tx = Transaction
+            { from = fromAddr
+            , to = toAddr
+            , amount = amountValue
+            , transactionId = show uuid
+            }
+    return (transactionId tx)
+
+main :: IO ()
+main = do
+    -- Create a transaction
+    txId <- createTransaction "Alice" "Bob" 100
+    putStrLn $ "Created transaction with ID: " ++ txId
+    
+    -- Create another transaction
+    txId2 <- createTransaction "Carol" "Dave" 50
+    putStrLn $ "Created transaction with ID: " ++ txId2
