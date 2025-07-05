@@ -1,0 +1,27 @@
+module Main where
+
+-- Define Animal type
+data Animal = Dog String  -- Constructor with the dog's name
+            | Cat String  -- Constructor with the cat's name
+            deriving (Show)
+
+-- Function to describe an animal
+describeAnimal :: Animal -> String
+describeAnimal (Dog name) = name ++ " is a happy dog who loves to play fetch!"
+describeAnimal (Cat name) = name ++ " is a sleepy cat who purrs all day."
+
+-- Create animal instances
+myDog :: Animal
+myDog = Dog "Rex"
+
+myCat :: Animal
+myCat = Cat "Whiskers"
+
+main :: IO ()
+main = do
+    putStrLn $ describeAnimal myDog
+    putStrLn $ describeAnimal myCat
+    
+    -- You can also create and describe animals directly
+    putStrLn $ describeAnimal (Dog "Buddy")
+    putStrLn $ describeAnimal (Cat "Mittens")
