@@ -1,0 +1,19 @@
+module Main where
+
+-- Type synonyms
+type Address = String
+type Value = Int
+
+-- Transaction generation function
+generateTx :: Address -> Address -> Value -> String
+generateTx from to amount = 
+    "Transaction: " ++ from ++ " -> " ++ to ++ " (" ++ show amount ++ ")"
+
+main :: IO ()
+main = do
+    let alice = "Alice" :: Address
+        bob = "Bob" :: Address
+        txValue = 100 :: Value
+    
+    putStrLn $ generateTx alice bob txValue
+    putStrLn $ generateTx "Wallet1" "Wallet2" 50
