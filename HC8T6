@@ -1,0 +1,40 @@
+module Main where
+
+-- Define Shape type with record syntax for each constructor
+data Shape = Circle
+              { center :: (Float, Float)
+              , color :: String
+              , radius :: Float
+              }
+           | Rectangle
+              { center :: (Float, Float)
+              , color :: String
+              , width :: Float
+              , height :: Float
+              }
+           deriving (Show)
+
+-- Create a circle instance
+redCircle :: Shape
+redCircle = Circle
+    { center = (0.0, 0.0)
+    , color = "red"
+    , radius = 5.0
+    }
+
+-- Create a rectangle instance
+blueRectangle :: Shape
+blueRectangle = Rectangle
+    { center = (2.0, 3.0)
+    , color = "blue"
+    , width = 4.0
+    , height = 6.0
+    }
+
+main :: IO ()
+main = do
+    putStrLn "Circle:"
+    print redCircle
+    
+    putStrLn "\nRectangle:"
+    print blueRectangle
