@@ -1,0 +1,35 @@
+-- Définition du type Employee avec syntaxe record
+data Employee = Employee
+  { name :: String
+  , experienceInYears :: Float
+  } deriving (Show)
+
+-- Création d'un employé Richard avec 7.5 ans d'expérience
+richard :: Employee
+richard = Employee
+  { name = "Richard"
+  , experienceInYears = 7.5
+  }
+
+-- Fonction pour afficher les informations d'un employé
+printEmployee :: Employee -> IO ()
+printEmployee emp = do
+  putStrLn $ "Nom: " ++ name emp
+  putStrLn $ "Années d'expérience: " ++ show (experienceInYears emp)
+
+-- Fonction pour augmenter l'expérience
+addExperience :: Float -> Employee -> Employee
+addExperience years emp = emp { experienceInYears = experienceInYears emp + years }
+
+-- Fonction principale
+main :: IO ()
+main = do
+  putStrLn "=== Détails de l'employé initial ==="
+  printEmployee richard
+  
+  putStrLn "\n=== Après augmentation d'expérience ==="
+  let richardAfterExperience = addExperience 1.5 richard
+  printEmployee richardAfterExperience
+  
+  putStrLn "\n=== Affichage direct ==="
+  print richard
